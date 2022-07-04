@@ -25,7 +25,11 @@
 
 // Creating the object sensor on pin 'D4'
 #define DHTPIN  D4      // Digital pin connected to the DHT sensor
+
+// Uncomment the type in use
 #define DHTTYPE DHT11   // DHT 11
+//#define DHTTYPE DHT21   // DHT 21 (AM2301)
+//#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -34,10 +38,10 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire, -1);
 
 void setup() 
 {
-  // initialize serial communications at 9600 bps
+  // Initialize serial communications at 9600 bps
   Serial.begin(9600);
   
-  //modules initialization
+  // Modules initialization
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
   Serial.print("Display On");
   
@@ -67,7 +71,7 @@ void loop()
   display.print("\nTemperature: ");
   display.print(C);
   display.print("C");
-  // actually display the data above
+  // Actually display the data above
   display.display();
   
   // Print the collected data in a row on the Serial Monitor
